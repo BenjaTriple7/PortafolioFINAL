@@ -1,0 +1,400 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg-base: #ede6db;
+  --bg-surface: #e4ddd0;
+  --bg-card: #d4cab8;
+
+  --green: #4f6d38;
+  --green-dark: #3a5128;
+  --green-deep: #2a3d1c;
+  --green-wash: rgba(79, 109, 56, 0.07);
+  --green-tint: rgba(79, 109, 56, 0.13);
+
+  --border: #c8bfb0;
+  --border-light: #d8d0c4;
+
+  --ink: #2a3d1c;
+  --ink-mid: #7a6e5f;
+  --ink-faint: #9a8e7e;
+
+  --radius-sm: 3px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+
+  --narrow: 680px;
+  --wide: 1400px;
+}
+
+/* ─── Reset ─── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Body ─── */
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: var(--bg-base);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ─── Tipografía ─── */
+h2 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 18px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--ink-mid);
+  font-weight: 300;
+}
+
+/* ─── Small label ─── */
+.small {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.small::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: var(--green);
+  opacity: 0.6;
+}
+
+/* ─── Botones ─── */
+.btn {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 10px 22px;
+  background: var(--green);
+  color: var(--bg-base);
+  border: 0.5px solid var(--green);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.btn-ghost:hover {
+  background: var(--green-wash);
+}
+
+/* =============================================
+   LAYOUT PRINCIPAL
+   ============================================= */
+
+.content {
+  width: 100%;
+}
+
+/* ─── Narrow: texto centrado ─── */
+.section-narrow {
+  max-width: var(--narrow);
+  margin: 0 auto;
+  padding: 100px 40px 80px;
+}
+
+/* Primer bloque hero estrecho */
+.section-narrow:first-child {
+  padding-top: 120px;
+}
+
+/* ─── Wide: borde a borde ─── */
+.section-wide {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/* =============================================
+   HERO IMAGE — ocupa toda la pantalla
+   ============================================= */
+
+.case-img-large{
+  width: 100%;
+  height: 20vh;
+  min-height: 480px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.96);
+}
+
+/* =============================================
+   GRID DE CASO — imagen + texto
+   ============================================= */
+
+.case-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 70vh;
+}
+
+.case-grid.reverse {
+  direction: rtl;
+}
+
+.case-grid.reverse>* {
+  direction: ltr;
+}
+
+/* Imagen dentro del grid */
+.case-grid .case-img-large {
+  width: 100%;
+  height: 100%;
+  min-height: 520px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Texto dentro del grid */
+.case-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px 80px;
+  background: var(--bg-base);
+}
+
+/* Secciones alternas con fondo ligeramente diferente */
+.section-wide:nth-of-type(even) .case-text {
+  background: var(--bg-surface);
+}
+
+.section-wide:nth-of-type(odd) .case-text {
+  background: var(--bg-base);
+}
+
+/* ─── Detalle: número de sección ─── */
+.case-text::before {
+  content: attr(data-index);
+  font-family: 'DM Serif Display', serif;
+  font-size: 80px;
+  color: var(--green);
+  opacity: 0.07;
+  line-height: 1;
+  margin-bottom: -20px;
+  display: block;
+}
+
+/* =============================================
+   ANIMACIONES DE ENTRADA — scroll reveal
+   ============================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-img {
+  opacity: 0;
+  transform: scale(0.98);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-img.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Delay escalonado */
+.reveal[data-delay="1"] {
+  transition-delay: 0.1s;
+}
+
+.reveal[data-delay="2"] {
+  transition-delay: 0.2s;
+}
+
+.reveal[data-delay="3"] {
+  transition-delay: 0.3s;
+}
+
+/* =============================================
+   HEADER FLOTANTE — volver al portafolio
+   ============================================= */
+
+.case-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  transition: background 0.4s ease, border-bottom 0.4s ease;
+}
+
+.case-header.scrolled {
+  background: rgba(237, 230, 219, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 0.5px solid var(--border-light);
+}
+
+.case-header-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.case-header-name:hover {
+  opacity: 1;
+}
+
+.case-header-back {
+  font-size: 13px;
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: gap 0.2s ease;
+}
+
+.case-header-back:hover {
+  gap: 10px;
+}
+
+/* ─── Barra de progreso de lectura ─── */
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--green);
+  z-index: 200;
+  width: 0%;
+  transition: width 0.1s linear;
+}
+
+/* =============================================
+   SECCIÓN RESULTADO — cierre narrativo
+   ============================================= */
+
+.section-narrow:last-child {
+  padding-bottom: 140px;
+  border-top: 0.5px solid var(--border-light);
+  margin-top: 0;
+}
+
+.section-narrow:last-child h2 {
+  font-size: 42px;
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
+
+@media (max-width: 960px) {
+  .case-grid {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .case-grid.reverse {
+    direction: ltr;
+  }
+
+  /* En mobile la imagen siempre va arriba */
+  .case-grid img {
+    order: -1;
+    min-height: 300px;
+  }
+
+  .case-grid .case-text {
+    padding: 52px 32px;
+  }
+
+  .case-text::before {
+    font-size: 56px;
+  }
+
+  .section-narrow {
+    padding: 72px 28px 60px;
+  }
+
+  .section-narrow:first-child {
+    padding-top: 100px;
+  }
+
+  .section-wide:first-of-type .case-img-large {
+    height: 50vh;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .case-header {
+    padding: 16px 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-grid .case-text {
+    padding: 40px 24px;
+  }
+
+  .section-narrow {
+    padding: 60px 24px 48px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
