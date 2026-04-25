@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arthyum — Benjamín Sánchez</title>
+    <link rel="stylesheet" href="detalle.css">
+</head>
+
+<body>
+
+    <!-- Barra de progreso -->
+    <div class="progress-bar" id="progress"></div>
+
+    <!-- Header flotante -->
+    <header class="case-header" id="caseHeader">
+        <a href="index.html" class="case-header-name">Benjamín Sánchez</a>
+        <a href="index.html#proyectos" class="case-header-back">← Proyectos</a>
+    </header>
+
+    <main class="content">
+
+        <!-- HERO texto -->
+        <section class="section-narrow">
+            <p class="small reveal" data-delay="1">Caso de estudio</p>
+            <h2 class="reveal" data-delay="2">Desaloon</h2>
+            <p class="reveal" data-delay="3">
+                Rediseño enfocado en mejorar la forma en que los usuarios exploran y comprenden obras,
+                a través de una estructura más clara y una jerarquía visual definida.
+            </p>
+        </section>
+
+        <!-- HERO imagen full -->
+        <section class="section-wide">
+            <img src="portafolioart.JPG" class="case-img-large reveal-img" alt="Arthyum hero">
+        </section>
+
+        <!-- PROBLEMA -->
+        <section class="section-wide">
+            <div class="case-grid">
+                <img src="portafolioart.JPG" class="case-img-large reveal-img" alt="Problema">
+                <div class="case-text reveal" data-index="01">
+                    <p class="small">Problema</p>
+                    <h2>Interfaz sin jerarquía clara</h2>
+
+                    <p class="case-note">
+                        El problema no era la cantidad de contenido, sino cómo estaba organizado.
+                    </p>
+
+                    <p>
+                        La interfaz presentaba una sobrecarga de elementos sin una estructura clara,
+                        lo que dificultaba identificar qué contenido era relevante y cómo recorrer el sitio.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ANÁLISIS -->
+        <section class="section-wide">
+            <div class="case-grid reverse">
+                <div class="case-text reveal" data-index="02">
+                    <p class="small">Análisis</p>
+                    <h2>Pérdida de foco en el contenido</h2>
+
+                    <p class="case-note">
+                        Las obras competían visualmente en lugar de destacarse.
+                    </p>
+
+                    <p>
+                        La navegación no guiaba al usuario y la disposición de los elementos generaba
+                        competencia visual entre las obras, reduciendo su impacto y dificultando la exploración.
+                    </p>
+                </div>
+                <img src="portafolioart.JPG" class="case-img-large reveal-img" alt="Análisis">
+            </div>
+        </section>
+
+        <!-- PROCESO -->
+        <section class="section-wide">
+            <div class="case-grid">
+                <img src="portafolioart.JPG" class="case-img-large reveal-img" alt="Proceso">
+                <div class="case-text reveal" data-index="03">
+                    <p class="small">Proceso</p>
+                    <h2>Reestructuración del contenido</h2>
+
+                    <p class="case-note">
+                        Se priorizó lo esencial: las obras.
+                    </p>
+
+                    <p>
+                        Se replanteó la arquitectura del sitio, eliminando elementos innecesarios
+                        y reorganizando la navegación para dirigir la atención hacia el contenido principal.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOLUCIÓN -->
+        <section class="section-wide">
+            <div class="case-grid reverse">
+                <div class="case-text reveal" data-index="04">
+                    <p class="small">Solución</p>
+                    <h2>Jerarquía visual definida</h2>
+
+                    <p class="case-note">
+                        Cada elemento cumple una función dentro de la interfaz.
+                    </p>
+
+                    <p>
+                        Se diseñó una interfaz más limpia, donde la jerarquía visual permite recorrer
+                        el contenido de forma intuitiva, destacando las obras y mejorando la legibilidad.
+                    </p>
+                </div>
+                <img src="portafolioart.JPG" class="case-img-large reveal-img" alt="Solución">
+            </div>
+        </section>
+
+        <!-- RESULTADO -->
+        <section class="section-narrow">
+            <p class="small reveal" data-delay="1">Resultado</p>
+            <h2 class="reveal" data-delay="2">Mejora en la experiencia</h2>
+            <p class="reveal" data-delay="3">
+                La nueva interfaz permite una exploración más clara y mejora la percepción del sitio.
+            </p>
+            <a href="index.html#proyectos" class="btn btn-ghost reveal" data-delay="3">← Volver</a>
+        </section>
+
+    </main>
+
+    <script>
+        // Header al scroll
+        const header = document.getElementById('caseHeader');
+        const progress = document.getElementById('progress');
+
+        window.addEventListener('scroll', () => {
+            // Header con fondo
+            header.classList.toggle('scrolled', window.scrollY > 60);
+
+            // Barra de progreso
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = (window.scrollY / docHeight) * 100;
+            progress.style.width = pct + '%';
+        });
+
+        // Scroll reveal con IntersectionObserver
+        const reveals = document.querySelectorAll('.reveal, .reveal-img');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        reveals.forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>
