@@ -341,6 +341,7 @@ p {
    ============================================= */
 
 @media (max-width: 960px) {
+
   .case-grid {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -350,14 +351,16 @@ p {
     direction: ltr;
   }
 
-  /* En mobile la imagen siempre va arriba */
-  .case-grid img {
-    order: -1;
-    min-height: 300px;
+  /* TEXTO PRIMERO */
+  .case-grid .case-text {
+    order: 1;
+    padding: 52px 32px;
   }
 
-  .case-grid .case-text {
-    padding: 52px 32px;
+  /* IMAGEN DESPUÉS */
+  .case-grid img {
+    order: 2;
+    min-height: 300px;
   }
 
   .case-text::before {
@@ -386,8 +389,19 @@ p {
 }
 
 @media (max-width: 767px) {
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
   .case-grid .case-text {
+    order: 1;
     padding: 40px 24px;
+  }
+
+  .case-grid img {
+    order: 2;
   }
 
   .section-narrow {
@@ -397,6 +411,7 @@ p {
   h2 {
     font-size: 24px;
   }
+
   .case-img-large {
     height: 70vh;
     max-height: none;
