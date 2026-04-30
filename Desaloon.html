@@ -11,7 +11,17 @@
 <body>
 
     <!-- Barra de progreso -->
-    <div class="progress-bar" id="progress"></div>
+    <nav class="case-progress-nav" id="caseNav">
+        <div class="cpn-inner">
+            <div class="cpn-steps">
+                <a href="#problema" class="cpn-step" data-section="problema">Problema</a>
+                <a href="#analisis" class="cpn-step" data-section="analisis">Análisis</a>
+                <a href="#proceso" class="cpn-step" data-section="proceso">Proceso</a>
+                <a href="#solucion" class="cpn-step" data-section="solucion">Solución</a>
+                <a href="#resultado" class="cpn-step" data-section="resultado">Resultado</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Header flotante -->
     <header class="case-header" id="caseHeader">
@@ -21,30 +31,39 @@
 
     <main class="content">
 
-        <!-- HERO texto -->
-        <section class="section-narrow">
-            <p class="small reveal" data-delay="1">Caso de estudio</p>
-            <h2 class="reveal" data-delay="2">Desaloon</h2>
-            <p class="reveal" data-delay="3">
-                Rediseño del sitio oficial de la banda Desaloon enfocado en modernizar su interfaz,
-                mejorar la adaptación móvil y potenciar la promoción del tour y su nuevo lanzamiento,
-                a través de una estructura más dinámica y una jerarquía visual clara.
-            </p>
-        </section>
-
-        <p class="small">
-            Rol: Diseñador UX/UI · Herramientas: Figma · Tipo: Proyecto personal
-        </p>
-
-        <!-- HERO imagen full -->
-        <section class="section-wide">
-            <picture>
-                <!-- Imagen para mobile (más vertical / alargada) -->
-                <source srcset="assets/imgs/respodesaloo3.png" media="(max-width: 767px)">
-
-                <!-- Imagen default (desktop) -->
-                <img src="assets/imgs/hero5.JPG" class="case-img-large reveal-img" alt="Arthyum hero">
-            </picture>
+        <!-- REEMPLAZA tu section-narrow + section-wide del hero por esto -->
+        <section class="case-hero">
+            <div class="case-hero-text">
+                <p class="small">Caso de estudio</p>
+                <h1>Desaloon</h1>
+                <p class="hero-desc">
+                    Rediseño del sitio oficial de la banda enfocado en modernizar
+                    su interfaz, mejorar la adaptación móvil y potenciar la
+                    promoción del tour.
+                </p>
+                <!-- NUEVA: fila de metadatos estructurados -->
+                <div class="case-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Rol</span>
+                        <span class="meta-value">Diseñador UX/UI</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Herramientas</span>
+                        <span class="meta-value">Figma</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Tipo</span>
+                        <span class="meta-value">Proyecto personal</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Año</span>
+                        <span class="meta-value">2024</span>
+                    </div>
+                </div>
+            </div>
+            <div class="case-hero-visual">
+                <img src="assets/imgs/hero5.JPG" class="hero-mockup reveal-img" alt="Preview del rediseño">
+            </div>
         </section>
 
         <!-- PROBLEMA -->
@@ -68,6 +87,21 @@
                         Esto provocaba desinterés y abandono, afectando directamente la percepción de
                         profesionalismo de la banda y el impacto de su promoción.
                     </p>
+                    <!-- Dentro de .case-text del Problema, después del último <p> -->
+                    <div class="findings-list">
+                        <div class="finding">
+                            <span class="finding-dot"></span>
+                            Sin jerarquía visual entre título, imagen y contenido
+                        </div>
+                        <div class="finding">
+                            <span class="finding-dot"></span>
+                            Layout roto en viewports menores a 768px
+                        </div>
+                        <div class="finding">
+                            <span class="finding-dot"></span>
+                            Fechas del tour enterradas fuera del fold
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -98,11 +132,38 @@
             </div>
         </section>
 
-        <!-- PROCESO -->
-        <section class="section-wide">
+        <!-- REEMPLAZA el section-wide del Proceso -->
+        <section class="section-wide" id="proceso">
+            <!-- Bloque de fases -->
+            <div class="process-phases">
+                <div class="phase">
+                    <span class="phase-num">01</span>
+                    <span class="phase-name">Benchmark</span>
+                </div>
+                <div class="phase-arrow">→</div>
+                <div class="phase">
+                    <span class="phase-num">02</span>
+                    <span class="phase-name">Auditoría</span>
+                </div>
+                <div class="phase-arrow">→</div>
+                <div class="phase">
+                    <span class="phase-num">03</span>
+                    <span class="phase-name">Wireframes</span>
+                </div>
+                <div class="phase-arrow">→</div>
+                <div class="phase active">
+                    <span class="phase-num">04</span>
+                    <span class="phase-name">Visual</span>
+                </div>
+                <div class="phase-arrow">→</div>
+                <div class="phase">
+                    <span class="phase-num">05</span>
+                    <span class="phase-name">Entrega</span>
+                </div>
+            </div>
+            <!-- Grid normal debajo -->
             <div class="case-grid">
-                <img src="assets/imgs/estructura2.JPG" class="case-img-large reveal-img"
-                    alt="Wireframes y estructura del rediseño">
+                <img src="assets/imgs/estructura2.JPG" class="case-img-large reveal-img" alt="Wireframes">
                 <div class="case-text reveal" data-index="03">
                     <p class="small">Proceso</p>
                     <h2>Replanteamiento estructural y visual</h2>
@@ -148,70 +209,45 @@
                         de consumo digital.
                     </p>
                 </div>
-                <img src="assets/imgs/pagecompleta2.png" class="case-img-large reveal-img"
-                    alt="Resultado final del rediseño de DeSaloon">
-
+                <!-- Dentro de tu section-wide de Solución, reemplaza la img por esto -->
+                <div class="compare-wrapper">
+                    <div class="compare-container" id="compareContainer">
+                        <img src="assets/imgs/imagen1.png" class="compare-after" alt="Después">
+                        <div class="compare-before" id="compareBefore">
+                            <img src="assets/imgs/pagecompleta2.png" alt="Antes">
+                        </div>
+                        <div class="compare-handle" id="compareHandle">
+                            <div class="handle-line"></div>
+                            <div class="handle-circle">
+                                <span>↔</span>
+                            </div>
+                            <div class="handle-line"></div>
+                        </div>
+                    </div>
+                    <div class="compare-labels">
+                        <span>Antes</span>
+                        <span>Después</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- RESULTADO -->
-        <!-- RESULTADO -->
-        <section class="section-narrow result-section">
+        <section class="section-narrow">
             <p class="small reveal" data-delay="1">Resultado</p>
             <h2 class="reveal" data-delay="2">Experiencia más atractiva y profesional</h2>
             <p class="reveal" data-delay="3">
                 El rediseño transforma un sitio básico en una experiencia visual coherente,
-                donde el contenido principal se presenta con claridad y jerarquía.
+                donde el contenido principal se presenta con claridad y jerarquía. Esto permite
+                una navegación más intuitiva, aumenta el tiempo de permanencia y mejora la
+                percepción de profesionalismo de la banda.
             </p>
+            <a href="index.html#proyectos" class="btn btn-ghost reveal" data-delay="3">← Volver</a>
 
-            <!-- NUEVO: métricas de impacto -->
-            <div class="result-metrics reveal" data-delay="3">
-                <div class="metric">
-                    <span class="metric-n">↑</span>
-                    <span class="metric-label">Jerarquía visual</span>
-                    <span class="metric-desc">Contenido prioritario visible sin scroll</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-n">✓</span>
-                    <span class="metric-label">Responsive</span>
-                    <span class="metric-desc">Adaptación correcta en móvil</span>
-                </div>
-                <div class="metric">
-                    <span class="metric-n">↑</span>
-                    <span class="metric-label">Identidad</span>
-                    <span class="metric-desc">Coherencia visual con la banda</span>
-                </div>
-            </div>
-
-            <!-- NUEVO: comparación antes/después como tabs de texto -->
-            <div class="before-after reveal" data-delay="3">
-                <div class="ba-col ba-before">
-                    <span class="ba-label">Antes</span>
-                    <ul class="ba-list">
-                        <li>Sin jerarquía visual clara</li>
-                        <li>Imagen hero sobredimensionada</li>
-                        <li>Fechas del tour enterradas</li>
-                        <li>Sin adaptación móvil</li>
-                        <li>Footer básico sin estructura</li>
-                    </ul>
-                </div>
-                <div class="ba-col ba-after">
-                    <span class="ba-label">Después</span>
-                    <ul class="ba-list">
-                        <li>Estructura con jerarquía definida</li>
-                        <li>Hero controlado y funcional</li>
-                        <li>Tour como elemento principal</li>
-                        <li>Diseño responsive completo</li>
-                        <li>Footer estructurado con redes</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="result-cta reveal" data-delay="3">
-                <a href="https://benjatriple7.github.io/Redise-oDeSaloon/" target="_blank" class="btn">Ver sitio en vivo
-                    ↗</a>
-                <a href="index.html#proyectos" class="btn btn-ghost">← Volver a proyectos</a>
-            </div>
+            <a href="https://benjatriple7.github.io/Redise-oDeSaloon/" target="_blank" class="btn btn-ghost reveal"
+                data-delay="3">
+                Ver sitio en vivo ↗
+            </a>
         </section>
 
     </main>
@@ -243,6 +279,30 @@
         }, { threshold: 0.12 });
 
         reveals.forEach(el => observer.observe(el));
+
+        // Agregar al script existente
+        const caseNav = document.getElementById('caseNav');
+        const navSteps = document.querySelectorAll('.cpn-step');
+        const sections = document.querySelectorAll('[data-section]');
+
+        // Mostrar nav después del hero
+        const heroObserver = new IntersectionObserver(([e]) => {
+            caseNav.classList.toggle('visible', !e.isIntersecting);
+        }, { threshold: 0 });
+        heroObserver.observe(document.querySelector('.case-hero'));
+
+        // Step activo según sección visible
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navSteps.forEach(s => s.classList.remove('active'));
+                    const active = document.querySelector(`.cpn-step[data-section="${entry.target.id}"]`);
+                    if (active) active.classList.add('active');
+                }
+            });
+        }, { threshold: 0.4 });
+
+        document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
     </script>
 
 </body>
