@@ -620,85 +620,19 @@ a {
 }
 
 
-@media (max-width: 900px) {
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-  }
-
-  /* COPY */
-  .hero-copy {
-    padding: 56px 28px 40px;
-    border-right: none;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .hero-copy h2 {
-    font-size: 26px;
-    line-height: 1.3;
-  }
-
-  .hero-desc {
-    max-width: 100%;
-  }
-
-  /* VISUAL → SIEMPRE 1 COLUMNA */
-  .hero-visual {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .hero-card {
-    border-right: none;
-    border-bottom: 0.5px solid var(--border);
-  }
-
-  .hero-card:last-child {
-    border-bottom: none;
-  }
-
-  /* STATS ORDENADAS */
-  .hero-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-    margin-top: 32px;
-    padding-top: 24px;
-  }
-
-}
 
 
-/* ─── MOBILE MÁS CHICO ─── */
-
-@media (max-width: 600px) {
-
-  .hero-copy {
-    padding: 44px 20px 32px;
-  }
-
-  .hero-copy h2 {
-    font-size: 24px;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
-  }
-
-}
-
-
-/* ─── Responsive 1130px ─── */
+/* ─── TABLET ─── */
 @media (max-width: 1130px) {
+
   body {
     display: block;
   }
 
   .container {
     flex-direction: column;
-    gap: 0;
-    padding: 40px 32px 80px;
+    gap: 40px;
+    padding: 40px 28px 60px;
     max-width: 100%;
   }
 
@@ -707,31 +641,20 @@ a {
     position: static;
     opacity: 1;
     border-bottom: 0.5px solid var(--border);
-    padding-bottom: 24px;
-    margin-bottom: 52px;
-  }
-
-  .sidebar-top {
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    min-width: 160px;
+    padding-bottom: 20px;
   }
 
   .sidebar-content {
     flex-direction: row;
-    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 28px;
+    gap: 24px;
   }
 
   nav {
-    margin-bottom: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 4px 18px;
-    align-items: flex-start;
-    padding-top: 2px;
+    gap: 6px 16px;
+    margin-bottom: 0;
   }
 
   nav a {
@@ -747,27 +670,89 @@ a {
     flex-direction: row;
     gap: 16px;
     margin-left: auto;
-    align-self: center;
   }
+
 }
 
-/* ─── Responsive 600px ─── */
+
+/* ─── MOBILE ─── */
+@media (max-width: 900px) {
+
+  .section {
+    margin-bottom: 64px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    padding: 48px 24px 36px;
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .hero-copy h2 {
+    font-size: 26px;
+    line-height: 1.3;
+  }
+
+  .hero-desc {
+    max-width: 100%;
+  }
+
+  .hero-visual {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-card {
+    border-right: none;
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .hero-card:last-child {
+    border-bottom: none;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-top: 28px;
+    padding-top: 20px;
+  }
+
+}
+
+
+/* ─── MOBILE CHICO ─── */
 @media (max-width: 600px) {
+
   .container {
-    padding: 28px 20px 60px;
+    padding: 28px 20px 48px;
   }
 
   .sidebar-content {
     flex-direction: column;
-    gap: 18px;
+    gap: 16px;
   }
 
   .links {
     margin-left: 0;
   }
 
-  .hero h2 {
-    font-size: 28px;
+  .hero-copy {
+    padding: 40px 20px 32px;
+  }
+
+  .hero-copy h2 {
+    font-size: 24px;
+    /* consistente ↓ */
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
   }
 
   .projects-grid {
@@ -781,4 +766,5 @@ a {
   .btn {
     text-align: center;
   }
+
 }
