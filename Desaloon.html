@@ -10,24 +10,29 @@
 
 <body>
 
-    <!-- Barra de progreso -->
-    <nav class="case-progress-nav" id="caseNav">
-        <div class="cpn-inner">
-            <div class="cpn-steps">
-                <a href="#problema" class="cpn-step" data-section="problema">Problema</a>
-                <a href="#analisis" class="cpn-step" data-section="analisis">Análisis</a>
-                <a href="#proceso" class="cpn-step" data-section="proceso">Proceso</a>
-                <a href="#solucion" class="cpn-step" data-section="solucion">Solución</a>
-                <a href="#resultado" class="cpn-step" data-section="resultado">Resultado</a>
-            </div>
-        </div>
-    </nav>
+
 
     <!-- Header flotante -->
     <header class="case-header" id="caseHeader">
+
+        <!-- Barra de progreso -->
+        <nav class="case-progress-nav" id="caseNav">
+            <div class="cpn-inner">
+                <div class="cpn-steps">
+                    <a href="#problema" class="cpn-step" data-section="problema">Problema</a>
+                    <a href="#analisis" class="cpn-step" data-section="analisis">Análisis</a>
+                    <a href="#proceso" class="cpn-step" data-section="proceso">Proceso</a>
+                    <a href="#solucion" class="cpn-step" data-section="solucion">Solución</a>
+                    <a href="#resultado" class="cpn-step" data-section="resultado">Resultado</a>
+                </div>
+            </div>
+        </nav>
+
         <a href="index.html" class="case-header-name">Benjamín Sánchez</a>
         <a href="index.html#proyectos" class="case-header-back">← Proyectos</a>
     </header>
+
+
 
     <main class="content">
 
@@ -67,7 +72,7 @@
         </section>
 
         <!-- PROBLEMA -->
-        <section class="section-wide">
+        <section class="section-wide" id="problema">
             <div class="case-grid">
                 <img src="assets/imgs/imagen1.png" class="case-img-large reveal-img"
                     alt="Sitio original de DeSaloon antes del rediseño">
@@ -107,7 +112,7 @@
         </section>
 
         <!-- ANÁLISIS -->
-        <section class="section-wide">
+        <section class="section-wide" id="analisis">
             <div class="case-grid reverse">
                 <div class="case-text reveal" data-index="02">
                     <p class="small">Análisis</p>
@@ -186,7 +191,7 @@
         </section>
 
         <!-- SOLUCIÓN -->
-        <section class="section-wide">
+        <section class="section-wide" id="solucion">
             <div class="case-grid reverse">
                 <div class="case-text reveal" data-index="04">
                     <p class="small">Solución</p>
@@ -233,7 +238,7 @@
         </section>
 
         <!-- RESULTADO -->
-        <section class="section-narrow">
+        <section class="section-narrow" id="resultado">
             <p class="small reveal" data-delay="1">Resultado</p>
             <!-- Al inicio de section-narrow final (Resultado), antes del h2 -->
             <div class="outcome-grid">
