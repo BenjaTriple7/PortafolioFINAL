@@ -503,6 +503,47 @@ p {
   color: var(--ink-faint);
 }
 
+/* Resultado */
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-light);
+  border: 0.5px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 56px;
+}
+
+.outcome-card {
+  background: var(--bg-base);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.outcome-num {
+  font-family: 'DM Serif Display', serif;
+  font-size: 40px;
+  color: var(--green);
+  line-height: 1;
+}
+
+.outcome-label {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ink-mid);
+}
+
+@media (max-width: 640px) {
+  .outcome-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 /* =============================================
    ANIMACIONES DE ENTRADA — scroll reveal
    ============================================= */
@@ -664,7 +705,20 @@ p {
   font-size: 42px;
 }
 
+/* case note */
 
+.case-note {
+  font-family: 'DM Serif Display', serif;
+  font-size: 15px;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.5;
+  padding: 16px 20px;
+  border-left: 2px solid var(--green);
+  background: var(--green-wash);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 24px;
+}
 
 /* =============================================
    RESPONSIVE

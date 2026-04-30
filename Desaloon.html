@@ -235,6 +235,21 @@
         <!-- RESULTADO -->
         <section class="section-narrow">
             <p class="small reveal" data-delay="1">Resultado</p>
+            <!-- Al inicio de section-narrow final (Resultado), antes del h2 -->
+            <div class="outcome-grid">
+                <div class="outcome-card">
+                    <span class="outcome-num">100%</span>
+                    <span class="outcome-label">Responsive en todos los breakpoints</span>
+                </div>
+                <div class="outcome-card">
+                    <span class="outcome-num">+3</span>
+                    <span class="outcome-label">Secciones nuevas con jerarquía definida</span>
+                </div>
+                <div class="outcome-card">
+                    <span class="outcome-num">↑</span>
+                    <span class="outcome-label">Identidad visual alineada con la banda</span>
+                </div>
+            </div>
             <h2 class="reveal" data-delay="2">Experiencia más atractiva y profesional</h2>
             <p class="reveal" data-delay="3">
                 El rediseño transforma un sitio básico en una experiencia visual coherente,
@@ -303,6 +318,31 @@
         }, { threshold: 0.4 });
 
         document.querySelectorAll('section[id]').forEach(s => sectionObserver.observe(s));
+
+        // Slider de comparativa — agregar al script
+        const container = document.getElementById('compareContainer');
+        const before = document.getElementById('compareBefore');
+        const handle = document.getElementById('compareHandle');
+
+        if (container) {
+            let dragging = false;
+
+            const setPosition = (x) => {
+                const rect = container.getBoundingClientRect();
+                let pct = ((x - rect.left) / rect.width) * 100;
+                pct = Math.max(5, Math.min(95, pct));
+                before.style.width = pct + '%';
+                handle.style.left = pct + '%';
+            };
+
+            container.addEventListener('mousedown', (e) => { dragging = true; setPosition(e.clientX); });
+            window.addEventListener('mouseup', () => dragging = false);
+            window.addEventListener('mousemove', (e) => { if (dragging) setPosition(e.clientX); });
+
+            container.addEventListener('touchstart', (e) => { dragging = true; setPosition(e.touches[0].clientX); });
+            window.addEventListener('touchend', () => dragging = false);
+            window.addEventListener('touchmove', (e) => { if (dragging) setPosition(e.touches[0].clientX); });
+        }
     </script>
 
 </body>
